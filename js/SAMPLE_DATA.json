@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1700000001",
+    "date": "2024-11-01",
+    "category": "Grocery",
+    "description": "Weekly groceries at supermarket",
+    "amount": 2350.50,
+    "paymentMethod": "Credit Card - HDFC",
+    "referenceNo": "TXN001234",
+    "notes": "Bought monthly supplies",
+    "createdAt": "2024-11-01T10:30:00.000Z"
+  },
+  {
+    "id": "1700000002",
+    "date": "2024-11-02",
+    "category": "Ordered Food",
+    "description": "Lunch delivery from Zomato",
+    "amount": 425,
+    "paymentMethod": "UPI - Google Pay",
+    "referenceNo": "UPI567890",
+    "notes": "",
+    "createdAt": "2024-11-02T13:15:00.000Z"
+  },
+  {
+    "id": "1700000003",
+    "date": "2024-11-03",
+    "category": "Travel",
+    "description": "Uber to office",
+    "amount": 180,
+    "paymentMethod": "UPI - PhonePe",
+    "referenceNo": "UPI234567",
+    "notes": "",
+    "createdAt": "2024-11-03T09:00:00.000Z"
+  },
+  {
+    "id": "1700000004",
+    "date": "2024-11-04",
+    "category": "Entertainment",
+    "description": "Movie tickets",
+    "amount": 650,
+    "paymentMethod": "Credit Card - ICICI",
+    "referenceNo": "TXN445566",
+    "notes": "Weekend movie",
+    "createdAt": "2024-11-04T19:30:00.000Z"
+  },
+  {
+    "id": "1700000005",
+    "date": "2024-11-05",
+    "category": "Utilities",
+    "description": "Electricity bill",
+    "amount": 1850,
+    "paymentMethod": "Bank Transfer",
+    "referenceNo": "NEFT123456",
+    "notes": "Monthly bill",
+    "createdAt": "2024-11-05T11:00:00.000Z"
+  },
+  {
+    "id": "1700000006",
+    "date": "2024-11-06",
+    "category": "Healthcare",
+    "description": "Medical consultation",
+    "amount": 800,
+    "paymentMethod": "Cash",
+    "referenceNo": "",
+    "notes": "Regular checkup",
+    "createdAt": "2024-11-06T16:30:00.000Z"
+  },
+  {
+    "id": "1700000007",
+    "date": "2024-11-07",
+    "category": "Shopping",
+    "description": "Clothes shopping",
+    "amount": 3200,
+    "paymentMethod": "Credit Card - HDFC",
+    "referenceNo": "TXN778899",
+    "notes": "Seasonal shopping",
+    "createdAt": "2024-11-07T14:45:00.000Z"
+  },
+  {
+    "id": "1700000008",
+    "date": "2024-11-08",
+    "category": "Dining Out",
+    "description": "Restaurant dinner",
+    "amount": 1450,
+    "paymentMethod": "UPI - Google Pay",
+    "referenceNo": "UPI889900",
+    "notes": "Celebration dinner",
+    "createdAt": "2024-11-08T20:00:00.000Z"
+  },
+  {
+    "id": "1700000009",
+    "date": "2024-11-09",
+    "category": "Transportation",
+    "description": "Fuel refill",
+    "amount": 2500,
+    "paymentMethod": "Debit Card - HDFC",
+    "referenceNo": "TXN334455",
+    "notes": "Full tank",
+    "createdAt": "2024-11-09T08:30:00.000Z"
+  },
+  {
+    "id": "1700000010",
+    "date": "2024-11-10",
+    "category": "Subscriptions",
+    "description": "Netflix monthly subscription",
+    "amount": 649,
+    "paymentMethod": "Credit Card - ICICI",
+    "referenceNo": "TXN556677",
+    "notes": "Premium plan",
+    "createdAt": "2024-11-10T00:05:00.000Z"
+  }
+]
