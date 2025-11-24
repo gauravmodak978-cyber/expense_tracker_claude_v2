@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="#4F46E5" opacity="0.1"/>
+                    <path d="M30 10C18.954 10 10 18.954 10 30C10 41.046 18.954 50 30 50C41.046 50 50 41.046 50 30C50 18.954 41.046 10 30 10ZM30 15C32.761 15 35 17.239 35 20C35 22.761 32.761 25 30 25C27.239 25 25 22.761 25 20C25 17.239 27.239 15 30 15ZM30 46C24.5 46 19.7 43.3 17 39.1C17.05 34.8 25.5 32.4 30 32.4C34.5 32.4 42.95 34.8 43 39.1C40.3 43.3 35.5 46 30 46Z" fill="#4F46E5"/>
+                </svg>
+            </div>
+            <h1>Finance Tracker</h1>
+            <p class="subtitle">Manage your expenses with ease</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            
+            <div class="register-link">
+                <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+            </div>
+        </div>
+        
+        <!-- Registration Form (Hidden by default) -->
+        <div class="login-card" id="registerCard" style="display: none;">
+            <div class="logo">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="#10B981" opacity="0.1"/>
+                    <path d="M30 10C18.954 10 10 18.954 10 30C10 41.046 18.954 50 30 50C41.046 50 50 41.046 50 30C50 18.954 41.046 10 30 10ZM30 15C32.761 15 35 17.239 35 20C35 22.761 32.761 25 30 25C27.239 25 25 22.761 25 20C25 17.239 27.239 15 30 15ZM30 46C24.5 46 19.7 43.3 17 39.1C17.05 34.8 25.5 32.4 30 32.4C34.5 32.4 42.95 34.8 43 39.1C40.3 43.3 35.5 46 30 46Z" fill="#10B981"/>
+                </svg>
+            </div>
+            <h1>Create Account</h1>
+            <p class="subtitle">Join Finance Tracker today</p>
+            
+            <form id="registerForm" class="login-form">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" placeholder="Choose a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+            
+            <div class="register-link">
+                <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

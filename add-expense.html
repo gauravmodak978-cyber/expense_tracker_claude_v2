@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker - Add Expense</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>💰 Finance Tracker</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="add-expense.html" class="nav-link active">Add Expense</a>
+                <a href="analytics.html" class="nav-link">Analytics</a>
+                <a href="settings.html" class="nav-link">Settings</a>
+            </div>
+            <div class="nav-user">
+                <span id="userNameDisplay">User</span>
+                <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Add New Expense</h1>
+            <div class="page-actions">
+                <a href="dashboard.html" class="btn btn-outline">Back to Dashboard</a>
+            </div>
+        </div>
+
+        <div class="grid grid-2">
+            <!-- Add Expense Form -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Expense Details</h3>
+                </div>
+                <div class="card-body">
+                    <form id="addExpenseForm">
+                        <div class="form-group">
+                            <label for="expenseDate">Date *</label>
+                            <input type="date" id="expenseDate" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expenseCategory">Category *</label>
+                                <select id="expenseCategory" required>
+                                    <option value="">Select Category</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="expenseAmount">Amount (₹) *</label>
+                                <input type="number" id="expenseAmount" step="0.01" min="0" placeholder="0.00" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseDescription">Description *</label>
+                            <input type="text" id="expenseDescription" placeholder="e.g., Weekly groceries at supermarket" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expensePaymentMethod">Payment Method *</label>
+                            <select id="expensePaymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseReferenceNo">Reference No. (Optional)</label>
+                            <input type="text" id="expenseReferenceNo" placeholder="e.g., TXN001234">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseNotes">Notes (Optional)</label>
+                            <textarea id="expenseNotes" rows="3" placeholder="Add any additional notes here..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">Add Expense</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Quick Add Templates -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Quick Add Templates</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-secondary mb-3">Click to quickly fill common expense types</p>
+                    
+                    <div class="quick-templates">
+                        <button class="template-btn" data-category="Grocery" data-description="Weekly groceries">
+                            🛒 Weekly Groceries
+                        </button>
+                        <button class="template-btn" data-category="Travel" data-description="Cab/Uber ride">
+                            🚕 Cab Ride
+                        </button>
+                        <button class="template-btn" data-category="Ordered Food" data-description="Food delivery">
+                            🍔 Food Delivery
+                        </button>
+                        <button class="template-btn" data-category="Utilities" data-description="Electricity bill">
+                            💡 Electricity Bill
+                        </button>
+                        <button class="template-btn" data-category="Entertainment" data-description="Movie tickets">
+                            🎬 Movie Tickets
+                        </button>
+                        <button class="template-btn" data-category="Shopping" data-description="Online shopping">
+                            🛍️ Shopping
+                        </button>
+                        <button class="template-btn" data-category="Healthcare" data-description="Medical expenses">
+                            🏥 Medical
+                        </button>
+                        <button class="template-btn" data-category="Subscriptions" data-description="Monthly subscription">
+                            📺 Subscription
+                        </button>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>Recent Categories</h4>
+                        <div id="recentCategories" class="mt-2">
+                            <p class="text-secondary">No recent expenses</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4>Tips</h4>
+                        <ul class="text-secondary" style="line-height: 1.8; padding-left: 20px;">
+                            <li>Add expenses daily for accurate tracking</li>
+                            <li>Include reference numbers for easy reconciliation</li>
+                            <li>Use descriptive names for better analysis</li>
+                            <li>Keep digital receipts in notes if needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .quick-templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .template-btn {
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .template-btn:hover {
+            border-color: var(--primary-color);
+            background: rgba(79, 70, 229, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .category-chip {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--background);
+            border-radius: var(--radius-full);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-chip:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/add-expense.js"></script>
+</body>
+</html>

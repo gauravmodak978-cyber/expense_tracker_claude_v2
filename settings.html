@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker - Settings</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>💰 Finance Tracker</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="add-expense.html" class="nav-link">Add Expense</a>
+                <a href="analytics.html" class="nav-link">Analytics</a>
+                <a href="settings.html" class="nav-link active">Settings</a>
+            </div>
+            <div class="nav-user">
+                <span id="userNameDisplay">User</span>
+                <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Settings</h1>
+        </div>
+
+        <div class="grid grid-2">
+            <!-- Account Information -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Account Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="displayUsername" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Account Created</label>
+                        <input type="text" id="accountCreated" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Expenses Tracked</label>
+                        <input type="text" id="totalExpensesCount" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Management -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Data Management</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Export Data</label>
+                        <p class="text-secondary" style="font-size: 0.875rem;">Download all your expenses as JSON</p>
+                        <button class="btn btn-primary" id="exportBtn">📥 Export Data</button>
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <label>Import Data</label>
+                        <p class="text-secondary" style="font-size: 0.875rem;">Import expenses from JSON file</p>
+                        <input type="file" id="importFile" accept=".json" style="display: none;">
+                        <button class="btn btn-success" id="importBtn">📤 Import Data</button>
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <label>Clear All Data</label>
+                        <p class="text-secondary" style="font-size: 0.875rem;">Permanently delete all your expenses</p>
+                        <button class="btn btn-danger" id="clearDataBtn">🗑️ Clear All Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">Your Statistics</h3>
+            </div>
+            <div class="card-body">
+                <div class="grid grid-4">
+                    <div>
+                        <div class="stat-label">Total Spent</div>
+                        <div class="stat-value text-primary" id="statTotalSpent">₹0.00</div>
+                    </div>
+                    <div>
+                        <div class="stat-label">Total Transactions</div>
+                        <div class="stat-value text-success" id="statTotalTransactions">0</div>
+                    </div>
+                    <div>
+                        <div class="stat-label">Highest Expense</div>
+                        <div class="stat-value text-warning" id="statHighest">₹0.00</div>
+                    </div>
+                    <div>
+                        <div class="stat-label">Lowest Expense</div>
+                        <div class="stat-value text-info" id="statLowest">₹0.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">Quick Actions</h3>
+            </div>
+            <div class="card-body">
+                <div class="grid grid-3">
+                    <a href="dashboard.html" class="btn btn-outline btn-block">
+                        📊 View Dashboard
+                    </a>
+                    <a href="add-expense.html" class="btn btn-outline btn-block">
+                        ➕ Add Expense
+                    </a>
+                    <a href="analytics.html" class="btn btn-outline btn-block">
+                        📈 View Analytics
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">About Finance Tracker</h3>
+            </div>
+            <div class="card-body">
+                <p class="text-secondary">
+                    Finance Tracker is a comprehensive personal finance management application that helps you track your daily expenses, 
+                    analyze spending patterns, and make informed financial decisions.
+                </p>
+                <p class="text-secondary mt-2">
+                    <strong>Features:</strong>
+                </p>
+                <ul class="text-secondary" style="line-height: 1.8;">
+                    <li>Track expenses with detailed categorization</li>
+                    <li>Support for multiple payment methods</li>
+                    <li>Interactive charts and analytics</li>
+                    <li>Monthly and yearly summaries</li>
+                    <li>Data import/export functionality</li>
+                    <li>Responsive design for all devices</li>
+                </ul>
+                <p class="text-secondary mt-2">
+                    <strong>Version:</strong> 1.0.0<br>
+                    <strong>Data Storage:</strong> Local Storage (Client-side)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

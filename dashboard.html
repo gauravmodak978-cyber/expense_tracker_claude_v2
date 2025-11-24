@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>💰 Finance Tracker</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="add-expense.html" class="nav-link">Add Expense</a>
+                <a href="analytics.html" class="nav-link">Analytics</a>
+                <a href="settings.html" class="nav-link">Settings</a>
+            </div>
+            <div class="nav-user">
+                <span id="userNameDisplay">User</span>
+                <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Dashboard</h1>
+            <div class="page-actions">
+                <a href="add-expense.html" class="btn btn-primary">+ Add Expense</a>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-4 mb-4">
+            <div class="card stat-card">
+                <div class="stat-label">Total Expenses</div>
+                <div class="stat-value" id="totalExpenses">₹0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Transactions</div>
+                <div class="stat-value text-success" id="totalTransactions">0</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Average</div>
+                <div class="stat-value text-warning" id="averageExpense">₹0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">This Month</div>
+                <div class="stat-value" id="monthExpenses">₹0.00</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-row">
+                <div class="form-group">
+                    <label for="filterMonth">Month</label>
+                    <select id="filterMonth" class="form-control">
+                        <option value="">All Months</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterYear">Year</label>
+                    <select id="filterYear" class="form-control">
+                        <option value="">All Years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterCategory">Category</label>
+                    <select id="filterCategory" class="form-control">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterPayment">Payment Method</label>
+                    <select id="filterPayment" class="form-control">
+                        <option value="">All Methods</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex gap-2 mt-2">
+                <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                <button class="btn btn-outline" id="clearFilters">Clear Filters</button>
+            </div>
+        </div>
+
+        <!-- Recent Expenses -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recent Expenses</h3>
+            </div>
+            <div class="table-container">
+                <table id="expensesTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Payment Method</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expensesTableBody">
+                        <tr>
+                            <td colspan="6">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">📊</div>
+                                    <h3>No expenses yet</h3>
+                                    <p>Start tracking your expenses by adding your first transaction</p>
+                                    <a href="add-expense.html" class="btn btn-primary mt-2">Add Expense</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Expense</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="editExpenseId">
+                    
+                    <div class="form-group">
+                        <label for="editDate">Date *</label>
+                        <input type="date" id="editDate" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editCategory">Category *</label>
+                            <select id="editCategory" required></select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editAmount">Amount (₹) *</label>
+                            <input type="number" id="editAmount" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editDescription">Description *</label>
+                        <input type="text" id="editDescription" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editPaymentMethod">Payment Method *</label>
+                        <select id="editPaymentMethod" required></select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editReferenceNo">Reference No.</label>
+                        <input type="text" id="editReferenceNo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editNotes">Notes</label>
+                        <textarea id="editNotes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                <button class="btn btn-primary" id="saveEdit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Delete</h3>
+                <button class="modal-close" id="closeDeleteModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this expense? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

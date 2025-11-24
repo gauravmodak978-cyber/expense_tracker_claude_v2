@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker - Analytics</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>💰 Finance Tracker</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="add-expense.html" class="nav-link">Add Expense</a>
+                <a href="analytics.html" class="nav-link active">Analytics</a>
+                <a href="settings.html" class="nav-link">Settings</a>
+            </div>
+            <div class="nav-user">
+                <span id="userNameDisplay">User</span>
+                <button class="btn btn-secondary btn-sm" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Analytics & Insights</h1>
+            <div class="page-actions">
+                <select id="analyticsYear" class="form-control" style="width: auto;">
+                    <option value="">Current Year</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-4 mb-4">
+            <div class="card stat-card">
+                <div class="stat-label">Total Spending</div>
+                <div class="stat-value" id="totalSpending">₹0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Monthly Average</div>
+                <div class="stat-value text-primary" id="monthlyAverage">₹0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Top Category</div>
+                <div class="stat-value text-warning" id="topCategory">-</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Top Payment</div>
+                <div class="stat-value text-success" id="topPayment">-</div>
+            </div>
+        </div>
+
+        <!-- Charts Row 1 -->
+        <div class="grid grid-2 mb-4">
+            <!-- Category Distribution -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Spending by Category</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method Distribution -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Payment Method Distribution</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly Trend -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="card-title">Monthly Spending Trend</h3>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Breakdown Table -->
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Category Breakdown</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>% of Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoryTableBody">
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="empty-state">
+                                            <p>No data available</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method Breakdown Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Payment Method Breakdown</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Payment Method</th>
+                                    <th>Amount</th>
+                                    <th>Count</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentTableBody">
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="empty-state">
+                                            <p>No data available</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+</html>
